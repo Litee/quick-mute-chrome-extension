@@ -1,6 +1,3 @@
-import "./images/icon-128.png";
-import "./images/icon-16.png";
-
 let stateAllTabs = false;
 
 chrome.browserAction.onClicked.addListener(tab => {

@@ -9,7 +9,7 @@
     },
     "background": {
         "scripts": [
-            "background.bundle.js"
+            "background.js"
         ]
     },
     "permissions": ["contextMenus"],
