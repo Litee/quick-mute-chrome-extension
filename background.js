@@ -1,73 +1,39 @@
-let stateAllTabs = false;
+const modes = ["NONE", "ALL", "OTHER"];
+let currentMode = 0;
 
 chrome.browserAction.onClicked.addListener(tab => {
-    muteOrUnmuteAllTabs();
-});
-
-chrome.contextMenus.create({
-    title: "Mute all",
-    contexts: ["browser_action"],
-    onclick: function () {
-        muteOrUnmuteAllTabs();
+    currentMode = (currentMode + 1) % 3;
+    switch (currentMode) {
+        case 0:
+            muteTabs(false, false);
+            chrome.browserAction.setBadgeText({text:""});
+            break;
+        case 1:
+            muteTabs(true, true);
+            chrome.browserAction.setBadgeText({text:"ALL"});
+            break;
+        case 2:
+            muteTabs(true, false);
+            chrome.browserAction.setBadgeText({text:"OTHR"});
+            break;
     }
 });
 
-chrome.contextMenus.create({
-    title: "Mute all except current",
-    contexts: ["browser_action"],
-    onclick: function () {
-        muteOrUnmuteAllTabsExceptCurrent();
-    }
-});
-
-function muteOrUnmuteAllTabs() {
-    stateAllTabs = !stateAllTabs;
-    chrome.browserAction.setBadgeText(
-        stateAllTabs ? {
-            text: "ALL"
-        } : {
-            text: ""
-        }
-    );
-    chrome.windows.getAll({
-            populate: true
-        },
-        windowList => {
-            windowList.forEach(window => {
-                window.tabs.forEach(tab => {
-                    if (tab.audible || tab.mutedInfo.muted) {
-                        chrome.tabs.update(tab.id, {
-                            muted: stateAllTabs
-                        });
-                    }
-                });
-            });
-        }
-    );
-}
-
-function muteOrUnmuteAllTabsExceptCurrent() {
-    chrome.windows.getAll({
-            populate: true
-        },
-        windowList => {
-            windowList.forEach(window => {
-                window.tabs.forEach(tab => {
-                    if (tab.audible) {
-                        chrome.tabs.update(tab.id, {
-                            muted: true
-                        });
-                        chrome.browserAction.setBadgeText({
-                            text: "???"
-                        });
-                    }
-                });
-            });
-        }
-    );
+function muteTabs(muteNonSelected, muteSelected) {
     chrome.tabs.getSelected(null, tab => {
-        chrome.tabs.update(tab.id, {
-            muted: false
-        });
+        const selectedTabId = tab.id;
+        chrome.windows.getAll({populate: true},
+            windowList => {
+                windowList.forEach(window => {
+                    window.tabs.forEach(tab => {
+                        if (tab.audible) {
+                            chrome.tabs.update(tab.id, {
+                                muted: tab.id == selectedTabId ? muteSelected : muteNonSelected
+                            });
+                        }
+                    });
+                });
+            }
+        );
     });
 }

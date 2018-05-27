@@ -1,6 +1,6 @@
 {
     "name": "Quick Mute",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 2,
     "description": "Chrome extension to quickly mute all tabs or all tabs except current one",
     "icons": {
@@ -12,9 +12,9 @@
             "background.js"
         ]
     },
-    "permissions": ["contextMenus"],
+    "permissions": [],
     "browser_action": {
         "default_icon": "icon-16.png",
-        "default_title": "Quick Mute"
+        "default_title": "Quick Mute - Switch Mode"
     }
 }
