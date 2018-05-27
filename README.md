@@ -6,4 +6,4 @@
 ## Disclaimers
 
 * I've borrow some code from [Mute Tab Shortcuts](https://github.com/danhp/mute-tab-chrome) extension. Thank you, Daniel.
-* Icons made by [Freepik](http://www.freepik.com/) from [Flaticon](https://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
+* Icon made by [Freepik](https://www.freepik.com/) from [Flaticon](https://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
