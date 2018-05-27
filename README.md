@@ -7,14 +7,16 @@
 
 # How to install
 
-I have not published this extension into Chrome Web Store, so you will need to:
+I have not published this extension into Chrome Web Store, so your will need to install extension locally:
 
-1. Clone extension to your machine
-1. Look at `src/background.js`. It is always a good idea to check that code does not do anything suspicious ;)
-1. Run `npm install` and `npm run build`
-1. Open chrome://extensions tab in browser
+1. Clone extension to your machine - e.g. `git clone https://github.com/Litee/quick-mute-chrome-extension.git`
+1. Look at source code `src/background.js`. It is always a good idea to check that code does not do anything suspicious ;)
+1. Run `npm install` and `npm run build` in root folder
+1. Open chrome://extensions tab in your Chrome browser
 1. Activate developer mode (required for next step)
 1. Install extension as unpacked. Point to `build` folder.
+
+Ping me if you liked this extension and I may consider publishing it to the wide audience
 
 ## Disclaimers
 
