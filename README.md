@@ -2,8 +2,7 @@
 
 ## Features
 
-* Click extension icon to mute all tabs
-* Mute all tabs except current via icon context menu
+* Click extension icon to switch between three modes: no mute, mute all tabs and "mute all tabs except the current one"
 
 ## How to install
 
