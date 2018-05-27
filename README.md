@@ -1,11 +1,11 @@
 # "Quick Mute" Chrome extension
 
-# Features
+## Features
 
 * Click extension icon to mute all tabs
 * Mute all tabs except current via icon context menu
 
-# How to install
+## How to install
 
 I have not published this extension into Chrome Web Store, so your will need to install extension locally:
 
@@ -16,7 +16,7 @@ I have not published this extension into Chrome Web Store, so your will need to 
 1. Activate developer mode (required for next step)
 1. Install extension as unpacked. Point to `build` folder.
 
-Ping me if you liked this extension and I may consider publishing it to the wide audience.
+Ping me if you liked this extension and I may consider publishing it into Chrome Web Store.
 
 ## Disclaimers
 
